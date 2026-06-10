@@ -1,4 +1,4 @@
-# HashMaps (Dictionaries in Python)
+# HashMaps 
 
 ## What is a HashMap?
 
