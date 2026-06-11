@@ -1,4 +1,4 @@
-# HashMaps 
+# HashMaps (Dictionaries in Python)
 
 ## What is a HashMap?
 
@@ -27,7 +27,7 @@ student = {
 print(student["name"])  # Brian
 ```
 
----
+
 
 # Why Are HashMaps So Powerful?
 
@@ -45,7 +45,7 @@ Meaning the operation takes roughly the same amount of time whether there are:
 - 1,000 items
 - 1,000,000 items
 
----
+
 
 # HashMap vs List
 
@@ -59,7 +59,7 @@ Meaning the operation takes roughly the same amount of time whether there are:
 | Ordering | Ordered | Ordered (Python 3.7+) |
 | Best Use Case | Storing collections of items | Fast lookups and mappings |
 
----
+
 
 # Example: Lookup
 
@@ -88,7 +88,7 @@ Worst case:
 - Target is last element
 - Target doesn't exist
 
----
+
 
 ## Using a HashMap
 
@@ -112,7 +112,7 @@ O(1) Average
 
 Python can jump directly to where the value should be.
 
----
+
 
 # Common HashMap Use Cases
 
@@ -134,7 +134,7 @@ Output:
 John
 ```
 
----
+
 
 ## 2. Counting Frequencies
 
@@ -161,7 +161,7 @@ Output:
 }
 ```
 
----
+
 
 ## 3. Detecting Duplicates
 
@@ -182,7 +182,7 @@ Time Complexity:
 O(n²)
 ```
 
----
+
 
 ### With HashMap
 
@@ -204,87 +204,7 @@ Time Complexity:
 ```text
 O(n)
 ```
-
 ---
-
-## 4. Solving Two Sum
-
-This is one of the most famous interview questions.
-
-```python
-nums = [3, 2, 4]
-target = 6
-
-seen = {}
-
-for index, num in enumerate(nums):
-    complement = target - num
-
-    if complement in seen:
-        print(seen[complement], index)
-
-    seen[num] = index
-```
-
-Output:
-
-```text
-1 2
-```
-
-Time Complexity:
-
-```text
-O(n)
-```
-
-Instead of comparing every pair of numbers using nested loops (`O(n²)`), we use a HashMap to remember previously seen numbers.
-
----
-
-# Understanding `seen[num] = index`
-
-Example:
-
-```python
-nums = [3, 5, 7]
-
-seen = {}
-
-for index, num in enumerate(nums):
-    seen[num] = index
-```
-
-After the loop:
-
-```python
-{
-    3: 0,
-    5: 1,
-    7: 2
-}
-```
-
-What happened?
-
-| Number (Key) | Index (Value) |
-|-------------|-------------|
-| 3 | 0 |
-| 5 | 1 |
-| 7 | 2 |
-
-The HashMap remembers:
-
-> "I saw number 3 at index 0"
-
-> "I saw number 5 at index 1"
-
-> "I saw number 7 at index 2"
-
-This allows us to instantly find where a number was previously seen.
-
----
-
 # What is Enumerate?
 
 `enumerate()` is a built-in Python function that allows you to loop through an iterable while automatically keeping track of the index.
@@ -301,7 +221,7 @@ for num in nums:
     index += 1
 ```
 
----
+
 
 With `enumerate()`:
 
@@ -378,42 +298,6 @@ Output:
 1: John
 2: Sarah
 ```
-
----
-
-# HashMaps + Enumerate = Powerful Combination
-
-Many efficient algorithms use both together.
-
-Example:
-
-```python
-nums = [3, 5, 7, 3, 9, 5, 7, 3]
-
-seen = {}
-
-for index, num in enumerate(nums):
-
-    if num in seen:
-        print(
-            f"Number {num} is a duplicate at index {index}"
-        )
-    else:
-        seen[num] = index
-```
-
-Output:
-
-```text
-Number 3 is a duplicate at index 3
-Number 5 is a duplicate at index 5
-Number 7 is a duplicate at index 6
-Number 3 is a duplicate at index 7
-```
-
-The HashMap remembers previously seen values, while `enumerate()` tells us where they occur.
-
----
 
 # Key Takeaways
 
