@@ -1,16 +1,4 @@
-# HashMap Practice Tracker
-
-## Goal
-
-Master HashMaps for:
-
-* Data Structures & Algorithms
-* Python Interviews
-* Data Engineering Interviews
-* Spark Development
-* ETL Design
-* Streaming Systems
-* SQL Join Internals
+# HashMap Practice Questions
 
 ---
 
