@@ -45,6 +45,10 @@ Meaning the operation takes roughly the same amount of time whether there are:
 - 1,000 items
 - 1,000,000 items
 
+## Difference between sets and Hashmaps
+A hashmap is a set of key value pair but a set has only keys. E.g {1, 2, 3}. A set is  
+built on hashing so its closely related to hashmaps as both use hashing. Both during lookup share the O(1) complexity.
+
 
 
 # HashMap vs List
