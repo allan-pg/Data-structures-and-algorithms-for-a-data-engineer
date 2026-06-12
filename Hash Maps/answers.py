@@ -399,4 +399,277 @@ for key, value in count.items():
 
 ### 11. Remove duplicate customers based on customer_id.
 
+```Python
+customers = [
+    {"customer_id": 1, "name": "Brian"},
+    {"customer_id": 2, "name": "John"},
+    {"customer_id": 1, "name": "Brian"}
+]
+# create an empty list and dictionary
+dedup = {}
+new_customer = []
+
+# loop through your list of dictionaries
+for customer in customers:
+    customer_id = customer['customer_id']
+    print(customer_id)
+
+    # check if a customer_id is in the dictionary
+    if customer_id not in dedup:
+        dedup[customer_id] = True
+        new_customer.append(customer)
         
+        
+print(new_customer)
+
+```
+---
+
+### 13. Convert a customer list into a lookup dictionary.
+
+# your list of dictionary
+customers = [
+    {"customer_id": 1, "name": "Brian"},
+    {"customer_id": 2, "name": "John"}
+]
+
+# create an empty dict
+look_up = {}
+
+# loop through your list of dictionaries
+for customer in customers:
+    # assign your key a dictionary
+    look_up[customer['customer_id']] = customer
+    
+print(look_up)
+
+---
+
+### 14. Join customers and orders using a HashMap.
+
+```python
+customers = [
+    {"customer_id": 1, "name": "Brian"},
+    {"customer_id": 2, "name": "John"}
+]
+
+orders = [
+    {"customer_id": 1, "amount": 100},
+    {"customer_id": 2, "amount": 200}
+]
+
+# create an empty list and an empty dict
+joined = []
+customer_lookup = {}
+
+# loop through your list of customer dictionary
+for customer in customers:
+    customer_lookup[customer['customer_id']] = customer
+    
+# loop through orders
+for order in orders:
+    customer_id = order['customer_id']
+    
+    # check if customer id exist as a key in the lookup
+    if customer_id in customer_lookup:
+        customer = customer_lookup[customer_id]
+        
+        # append your list now with the correct values
+        joined.append({
+            "customer_id": customer['customer_id'],
+            "name": customer['name'],
+            "amount": order["amount"]
+        })
+        
+print(joined)
+
+```
+    
+---
+
+### 14. Calculate total sales per product.
+
+```python 
+# a list of tuples
+sales = [
+    ("Laptop", 500),
+    ("Phone", 200),
+    ("Laptop", 300)
+]
+
+
+sal = {}
+
+# for tuples you can loop through it
+for product, amount in sales:
+    # check if a product is in dict if not set value as amount if yes add amounts
+    if product not in sal:
+        sal[product] = amount
+        
+    else:
+        sal[product] += amount
+        
+print(sal)
+
+```
+
+--- 
+
+### 15. Identify duplicate invoice IDs.
+
+```python
+# list of items
+invoice_ids = [1001,1002,1003,1002,1004]
+
+# empty dict
+dedup = {}
+
+# loop through your list
+for id in invoice_ids:
+    
+    # set value as True for ids
+    if id not in dedup:
+        dedup[id] =  True
+    # print a duplicate id
+    else:
+        print(id)
+```
+
+---
+
+### 16. Count incoming events.
+
+```python
+# list of events
+events = [
+    "login",
+    "logout",
+    "login",
+    "purchase"
+]
+
+events_dict = {}
+
+# loops through your list
+for event in events:
+    # check if event is in events_dict if not assign value 1 if yes add 1 to value
+    if event not in events_dict:
+        events_dict[event] = 1
+        
+    else:
+        events_dict[event] += 1
+        
+print(events_dict)
+
+```
+
+---
+
+### 17. Group events by user.
+
+```python
+# list of events
+events = [
+    ("user1", "login"),
+    ("user1", "view_product"),
+    ("user2", "login"),
+    ("user1", "checkout")
+]
+
+event = {}
+
+# loop through your list of tuples
+for user, activity in events:
+    # if user doesnt exist in event create an empty list
+    if user not in event:
+        event[user] = []
+    # append activities to list    
+    event[user].append(activity)
+    
+print(event)
+
+```
+---
+
+
+### 18. Keep only the latest customer version.
+
+### this question is same as question number 11
+
+### 19. Remove duplicate events.
+
+```python
+### list of events
+
+events = [
+    {"event_id": 1},
+    {"event_id": 2},
+    {"event_id": 1},
+    {"event_id": 3}
+]
+
+deduplicated_events={}
+
+for event in events:
+    # deduplicate the events
+    deduplicated_events[event['event_id']] = event
+    
+    
+    
+print(list(deduplicated_events.values()))
+
+```
+---
+
+### 20. Implement SQL JOIN behavior using HashMaps.
+
+
+```python
+# customer and orders
+
+customers = [
+    {"customer_id": 1, "name": "Brian"},
+    {"customer_id": 2, "name": "John"}
+]
+
+orders = [
+    {"order_id": 101, "customer_id": 1},
+    {"order_id": 102, "customer_id": 2}
+]
+
+# create an empty dict
+hash_join = {}
+
+Joined_customers_order = []
+
+# create a look up customer table
+for customer in customers:
+    
+    hash_join[customer['customer_id']] = customer
+    
+# loop through orders
+for order in orders:
+    # get customer_ids from your order dictionaries
+    customer_id = order['customer_id']
+    # check if a customer id exist in our hash_join dict
+    if customer_id in hash_join:
+        customer = hash_join[customer_id]
+        
+        #append the matching ids to our empty list
+        Joined_customers_order.append(
+            {
+                "customer": customer['customer_id'],
+                "name": customer["name"],
+                "order_id": order['order_id']
+            }
+            )
+            
+print(Joined_customers_order)
+```
+        
+---
+## The End
+---
+
+
+               
