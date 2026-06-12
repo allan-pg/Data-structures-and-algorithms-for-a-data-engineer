@@ -323,7 +323,80 @@ get_missing_number(nums)
 
 ### 8. Group words that are anagrams.
 
+```python
+# list of anagram words
+words = ["eat","tea","ate","cat"]
 
+# create a function to group anagrams
+def get_anagram_words(words):
+    # anagrams are words with same length and have similar characters e.g eat, ate
+    anagrams = {}
+    # loop through your list
+    for word in words:
+        # sort your list to get a key for similar words e.g eat and ate when sorted its ate
+        key = "".join(sorted(word))
         
+        # if key is not yet in our dictionary create an empty list for the key
+        if key not in anagrams:
+            anagrams[key] = []
+        # then append anagram words to the created list    
+        anagrams[key].append(word)
+    print(anagrams)
+            
+get_anagram_words(words)
+
+```
+---
+### 9. Return the K most common values.
+
+```python
+# list of numbers
+numbers = [1,1,1,2,2,3]
+# create an empty dictionary
+count = {}
+
+# use enumerate to get index, and value
+for index, num in enumerate(numbers):
+    # create a frequency of how many times each value appears e.g 3:1
+    if num in count:
+        count[num] += 1
+    else:
+        count[num] = 1
+  
+# sort through your items      
+sorted_items = sorted(count.items(), reverse=True)
+
+```
+
+---
+    
+### 10. Find the number that appears more than n/2 times.
+
+```python
+# list of numbers
+nums = [2,2,1,2,2]
+# create an empty dictionary
+count = {}
+# get the length of items and divide it by 2
+n_times = len(nums)/2
+
+# loop through your list and create a frequency of how many times a value is in list
+for index, value in enumerate(nums):
+    if value in count:
+        count[value] += 1
+        
+    else:
+        count[value] = 1
+
+# loop through your dictionary and check for value that is greater than n_items and print the key        
+for key, value in count.items():
+    if value > n_times:
+        print(key)
+
+```
+
+---
+
+### 11. Remove duplicate customers based on customer_id.
 
         
